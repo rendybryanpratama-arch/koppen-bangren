@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kontak </title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&amp;family=DM+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#28180b",
+                        "on-secondary-fixed": "#241a0e",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#1b1c1a",
+                        "inverse-on-surface": "#f2f1ed",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#f4dfcb",
+                        "on-tertiary-fixed-variant": "#3e4c16",
+                        "on-surface-variant": "#4e453e",
+                        "on-tertiary-fixed": "#161f00",
+                        "primary": "#322214",
+                        "on-tertiary-container": "#9cac6b",
+                        "outline": "#80756d",
+                        "secondary-fixed": "#f4dfcb",
+                        "surface-tint": "#705a49",
+                        "primary-fixed-dim": "#dec1ac",
+                        "on-primary-fixed-variant": "#574333",
+                        "inverse-surface": "#2f312e",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#1f2900",
+                        "secondary-fixed-dim": "#d7c3b0",
+                        "surface": "#faf9f5",
+                        "surface-bright": "#faf9f5",
+                        "surface-variant": "#e3e2df",
+                        "surface-container-high": "#e9e8e4",
+                        "outline-variant": "#d2c4bb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#524436",
+                        "tertiary-fixed-dim": "#bdce89",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e3e2df",
+                        "background": "#faf9f5",
+                        "surface-dim": "#dbdad6",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#bba08c",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#33400a",
+                        "on-secondary-container": "#716252",
+                        "tertiary-fixed": "#d9eaa3",
+                        "on-background": "#1b1c1a",
+                        "secondary": "#6b5c4c",
+                        "surface-container": "#efeeea",
+                        "primary-container": "#4a3728",
+                        "surface-container-low": "#f4f4f0",
+                        "inverse-primary": "#dec1ac",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#fbddc7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "48px",
+                        "gutter": "24px",
+                        "container-max": "1120px",
+                        "unit": "8px",
+                        "margin-mobile": "20px",
+                        "stack-md": "24px",
+                        "stack-sm": "12px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Noto Serif"],
+                        "caption": ["DM Sans"],
+                        "body-md": ["DM Sans"],
+                        "body-lg": ["DM Sans"],
+                        "headline-sm": ["Noto Serif"],
+                        "display-lg": ["Noto Serif"],
+                        "headline-md": ["Noto Serif"],
+                        "label-md": ["DM Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["36px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+        background: linear-gradient(
+            -45deg,
+            #ff0000,
+            #ff00ff,
+            #0000ff,
+            #00ffff,
+            #00ff00,
+            #ffff00,
+            #ff0000
+        );
+        background-size: 600% 600%;
+        animation: rgbBackground 12s ease infinite;
+        color: #1b1c1a;
+    }
+
+    /* Animasi RGB otomatis */
+    @keyframes rgbBackground {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        25% {
+            background-position: 50% 100%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        75% {
+            background-position: 50% 0%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f4f4f0;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #80756d;
+        border-radius: 999px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #322214;
+    }
+
+    .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+    }
+
+    .nav-backdrop {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+
+    .photography-frame {
+        border-top-right-radius: 0 !important;
+    }
+</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl nav-backdrop">
+<div class="flex justify-between items-center px-margin-mobile md:px-gutter max-w-container-max mx-auto h-20">
+<!-- Leading Icon -->
+<button aria-label="Menu" class="text-primary dark:text-primary-fixed-dim cursor-pointer active:scale-95 transition-transform hover:bg-secondary-container/20 dark:hover:bg-secondary-container/10 transition-all duration-300 p-2 rounded-full">
+<span class="material-symbols-outlined text-2xl">local_cafe</span>
+</button>
+<!-- Headline/Brand Logo -->
+<div class="font-display-lg text-display-lg-mobile md:text-display-lg tracking-tight text-primary dark:text-primary-fixed cursor-pointer">
+                Koppen_strett
+            </div>
+<!-- Trailing Action -->
+<a 
+    href="https://wa.me/628216191582?text=Halo%20Koppen_Street,%20saya%20ingin%20memesan."
+    target="_blank"
+    rel="noopener noreferrer"
+    class="bg-primary-container text-on-primary font-label-md text-label-md px-6 py-3 rounded-full hover:bg-primary transition-colors duration-300 cursor-pointer active:scale-95 hidden md:block"
+>
+    Pesan Sekarang
+</a>
+</div>
+<!-- Desktop Navigation Links (Visible on md and up) -->
+</header>
+<!-- Mobile Navigation Drawer (Hidden by default, assumed toggled by leading icon in real app) -->
+<!-- <aside class="fixed inset-y-0 left-0 z-50 flex flex-col h-full w-72 rounded-r-none bg-surface dark:bg-surface-dim bg-surface-container-low dark:bg-surface-container shadow-32px-espresso transform -translate-x-full transition-transform ease-in-out duration-300">
+        <div class="p-6">
+            <h2 class="font-display-lg text-display-lg-mobile text-primary dark:text-primary-fixed mb-8">Kopi & Ruang</h2>
+            <nav class="flex flex-col gap-2">
+                <a href="#" class="flex items-center gap-4 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 px-4 py-3 hover:bg-surface-container-high transition-colors font-body-lg text-body-lg">
+                    <span class="material-symbols-outlined">home</span>
+                    <span>Beranda</span>
+                </a>
+                <a href="#" class="flex items-center gap-4 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 px-4 py-3 hover:bg-surface-container-high transition-colors font-body-lg text-body-lg">
+                    <span class="material-symbols-outlined">restaurant_menu</span>
+                    <span>Menu</span>
+                </a>
+                <a href="#" class="flex items-center gap-4 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 px-4 py-3 hover:bg-surface-container-high transition-colors font-body-lg text-body-lg">
+                    <span class="material-symbols-outlined">info</span>
+                    <span>Tentang</span>
+                </a>
+                <a href="#" class="flex items-center gap-4 bg-secondary-container text-on-secondary-container rounded-full mx-2 px-4 py-3 hover:bg-surface-container-high transition-colors font-body-lg text-body-lg">
+                    <span class="material-symbols-outlined">contact_support</span>
+                    <span>Kontak</span>
+                </a>
+            </nav>
+        </div>
+    </aside> -->
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-32 md:pt-40 px-margin-mobile md:px-gutter max-w-container-max mx-auto w-full pb-stack-lg">
+<!-- Hero Section -->
+<section class="mb-stack-lg animate-fade-in-up">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-4">Tentang.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                Kami berlokasi di jalan.a.ayani Bangkinang kota (samping wisma angga) Hubungi kami atau mampirlah.
+            </p>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-unit md:gap-stack-md">
+<!-- Map & Location Info (Spans 8 columns on desktop) -->
+<div class="md:col-span-8 flex flex-col gap-unit md:gap-stack-md">
+<!-- Map Container (Photography Frame Style) -->
+<div class="relative w-full h-[300px] md:h-[400px] rounded-xl photography-frame overflow-hidden bg-surface-container shadow-sm group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A high-quality, minimalist map interface showing the Senopati area in South Jakarta. The map style is clean and modern, using a muted color palette of soft creams, latte tans, and sage greens. Streets are depicted with subtle, elegant lines. A distinct, deep espresso-colored pin marks the location of the cafe, casting a very soft, blurred shadow to indicate depth." data-location="Jakarta Selatan" src="alamat.jpeg"/>
+<!-- Overlay for aesthetics -->
+<div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent pointer-events-none"></div>
+<div class="absolute bottom-4 left-4 right-4 bg-surface/90 backdrop-blur-md p-4 rounded-lg flex items-start gap-4 shadow-lg border border-surface-variant">
+<span class="material-symbols-outlined text-primary mt-1" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Koppen_street</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Jl.a.ayani Bangkinang kota<br/> # Angkringan koppen. Dari jalan untuk kamu.</p>
+</div>
+</div>
+</div>
+<!-- Hours & Contact Quick Info -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-unit md:gap-stack-md">
+<!-- Opening Hours Card -->
+<div class="bg-surface-container-low p-6 rounded-xl border border-surface-variant flex flex-col justify-center">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-secondary">schedule</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Jam Operasional</h3>
+</div>
+<ul class="font-body-md text-body-md text-on-surface-variant space-y-2">
+<li class="flex justify-between items-center border-b border-surface-variant pb-2">
+<span>Senin - Minggu</span>
+<span class="font-medium text-primary">08:00 - 22:00</span>
+</li>
+<li class="pt-2 text-caption font-caption text-secondary flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary-container inline-block"></span>
+                                Buka setiap hari untuk ketenangan harian Anda.
+                            </li>
+</ul>
+</div>
+<!-- Direct Contact Card -->
+<div class="bg-surface-container-low p-6 rounded-xl border border-surface-variant flex flex-col justify-center">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-secondary">phone_iphone</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Hubungi Kami</h3>
+</div>
+<div class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<a class="flex items-center gap-3 hover:text-primary transition-colors group" href="tel:+628216191582">
+<span class="p-2 bg-surface rounded-full border border-surface-variant group-hover:border-primary transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</span>
+                                +62 821 6191 582
+                            </a>
+<a class="flex items-center gap-3 hover:text-primary transition-colors group" href="koppenstreet@gmail.com">
+<span class="p-2 bg-surface rounded-full border border-surface-variant group-hover:border-primary transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</span>
+                                koppenstreet@gmail.com
+                            </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Inquiry Form (Spans 4 columns on desktop) -->
+<div class="md:col-span-4 bg-secondary-container/30 rounded-xl p-6 md:p-8 flex flex-col h-full border border-surface-variant">
+<div class="mb-6">
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Kirim Pesan</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Pertanyaan seputar acara, reservasi, atau sekadar menyapa.</p>
+</div>
+<form class="flex flex-col gap-4 flex-grow">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface" for="name">Nama</label>
+<input class="bg-surface border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-lg px-4 py-3 font-body-md text-body-md text-primary transition-colors outline-none" id="name" name="name" placeholder="Nama Anda" type="text"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface" for="email">Email</label>
+<input class="bg-surface border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-lg px-4 py-3 font-body-md text-body-md text-primary transition-colors outline-none" id="email" name="email" placeholder="email@anda.com" type="email"/>
+</div>
+<div class="flex flex-col gap-1 flex-grow">
+<label class="font-label-md text-label-md text-on-surface" for="message">Pesan</label>
+<textarea class="bg-surface border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-lg px-4 py-3 font-body-md text-body-md text-primary transition-colors outline-none resize-none h-full" id="message" name="message" placeholder="Bagaimana kami bisa membantu?" rows="4"></textarea>
+</div>
+<button class="mt-4 bg-primary text-on-primary font-label-md text-label-md py-3 px-6 rounded-lg hover:bg-primary-container transition-colors active:scale-95 flex items-center justify-center gap-2 w-full" type="button">
+<span>Kirim Pesan</span>
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</form>
+</div>
+</div>
+<!-- Social Connections --> 
+<section class="mt-stack-lg text-center"> 
+    <h3 class="font-headline-sm text-headline-sm text-primary mb-6">
+        Terhubung Dengan Kami
+    </h3> 
+
+    <div class="flex justify-center gap-4"> 
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/koppen_street/" 
+   target="_blank"
+   class="text-2xl hover:scale-110 transition-transform"
+   title="Instagram Koppen_Strett">
+    <i class="fa-brands fa-instagram"></i>
+</a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/628216191582" 
+   target="_blank"
+   class="text-2xl hover:scale-110 transition-transform"
+   title="WhatsApp Koppen_Strett">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+    </div> 
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg bg-surface-container-low dark:bg-surface-container-highest flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-gutter max-w-container-max mx-auto gap-stack-md bg-surface-container dark:bg-surface-container-high flat no shadows mt-auto">
+<div class="font-headline-sm text-headline-sm text-primary dark:text-primary-fixed">
+            Angkringan Koppen
+        </div>
+
+</div>
+<div class="font-caption text-caption text-on-surface-variant dark:text-on-secondary-fixed-variant">
+            Angkringan koppen.Dari jalan untuk kamu
+        </div>
+</footer>
+<script>
+        // Simple intersection observer for fade-in animations if needed
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-4');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.animate-fade-in-up').forEach(el => {
+                el.classList.add('opacity-0', 'translate-y-4', 'transition-all', 'duration-700', 'ease-out');
+                observer.observe(el);
+            });
+        });
+    </script>
+</body></html>

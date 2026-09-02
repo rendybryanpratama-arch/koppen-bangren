@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Koppen_Street</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+
+        /* ==================================================
+           RESET
+        ================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            overflow-x: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+        /* ==================================================
+           VIDEO BACKGROUND
+        ================================================== */
+
+        .video-bg {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            /*
+             * Menentukan bagian video yang ditampilkan.
+             * center = bagian tengah video.
+             */
+            object-position: center center;
+
+            z-index: -2;
+
+            pointer-events: none;
+
+            /*
+             * Warna cadangan jika video belum selesai dimuat.
+             */
+            background: #111;
+
+            /*
+             * Membantu rendering video pada browser.
+             */
+            transform: translateZ(0);
+
+            -webkit-transform: translateZ(0);
+        }
+
+
+        /* ==================================================
+           OVERLAY VIDEO
+        ================================================== */
+
+        .overlay {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            /*
+             * Semakin besar angka terakhir,
+             * semakin gelap videonya.
+             */
+            background: rgba(0, 0, 0, 0.45);
+
+            z-index: -1;
+
+            pointer-events: none;
+        }
+
+
+        /* ==================================================
+           NAVBAR
+        ================================================== */
+
+        nav {
+            position: relative;
+
+            z-index: 10;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            gap: 35px;
+
+            width: 100%;
+
+            padding: 30px 20px 0;
+
+            font-size: 20px;
+        }
+
+
+        nav a {
+            display: inline-block;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: 500;
+
+            transition:
+                color 0.3s ease,
+                transform 0.3s ease;
+        }
+
+
+        nav a:hover {
+            color: #ddd;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* ==================================================
+           CONTENT
+        ================================================== */
+
+        .content {
+            position: relative;
+
+            z-index: 1;
+
+            width: 100%;
+
+            min-height: calc(100vh - 70px);
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding: 40px 20px;
+        }
+
+
+        /* ==================================================
+           JUDUL
+        ================================================== */
+
+        .judul {
+            max-width: 900px;
+
+            color: white;
+
+            font-size: 3rem;
+
+            line-height: 1.2;
+
+            font-weight: 700;
+
+            margin-bottom: 20px;
+
+            text-shadow:
+                0 3px 10px rgba(0, 0, 0, 0.8);
+
+            animation:
+                fadeIn 1.2s ease forwards;
+        }
+
+
+        /* ==================================================
+           DESKRIPSI
+        ================================================== */
+
+        .deskripsi {
+            max-width: 650px;
+
+            color: white;
+
+            font-size: 1.15rem;
+
+            line-height: 1.7;
+
+            margin-bottom: 32px;
+
+            text-shadow:
+                0 3px 10px rgba(0, 0, 0, 0.8);
+
+            animation:
+                fadeIn 1.5s ease forwards;
+        }
+
+
+        /* ==================================================
+           TOMBOL MENU
+        ================================================== */
+
+        .btn-menu {
+            display: inline-block;
+
+            background: #000;
+
+            color: white;
+
+            padding: 16px 32px;
+
+            border-radius: 50px;
+
+            text-decoration: none;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.5);
+
+            transition:
+                background 0.3s ease,
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+
+            animation:
+                fadeIn 1.8s ease forwards;
+        }
+
+
+        .btn-menu:hover {
+            background: #333;
+
+            transform: scale(1.05);
+
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, 0.6);
+        }
+
+
+        /* ==================================================
+           ANIMASI
+        ================================================== */
+
+        @keyframes fadeIn {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+        /* ==================================================
+           TABLET
+        ================================================== */
+
+        @media (max-width: 768px) {
+
+            nav {
+                gap: 22px;
+
+                padding:
+                    25px 15px 0;
+
+                font-size: 17px;
+            }
+
+
+            .content {
+                min-height:
+                    calc(100vh - 60px);
+
+                padding:
+                    30px 20px;
+            }
+
+
+            .judul {
+                max-width: 600px;
+
+                font-size: 2.3rem;
+
+                line-height: 1.2;
+            }
+
+
+            .deskripsi {
+                max-width: 500px;
+
+                font-size: 1rem;
+
+                line-height: 1.6;
+
+                margin-bottom: 28px;
+            }
+
+
+            .btn-menu {
+                padding:
+                    14px 28px;
+
+                font-size: 16px;
+            }
+
+        }
+
+
+        /* ==================================================
+           HP
+        ================================================== */
+
+        @media (max-width: 480px) {
+
+            nav {
+                gap: 15px;
+
+                padding:
+                    22px 10px 0;
+
+                font-size: 14px;
+            }
+
+
+            .content {
+
+                min-height:
+                    calc(100vh - 50px);
+
+                padding:
+                    25px 15px;
+            }
+
+
+            .judul {
+
+                max-width: 350px;
+
+                font-size: 1.9rem;
+
+                line-height: 1.2;
+
+                margin-bottom: 18px;
+            }
+
+
+            .deskripsi {
+
+                max-width: 310px;
+
+                font-size: 14px;
+
+                line-height: 1.6;
+
+                margin-bottom: 25px;
+            }
+
+
+            .btn-menu {
+
+                padding:
+                    13px 26px;
+
+                font-size: 15px;
+            }
+
+        }
+
+
+        /* ==================================================
+           HP KECIL
+        ================================================== */
+
+        @media (max-width: 360px) {
+
+            nav {
+
+                gap: 10px;
+
+                padding:
+                    20px 8px 0;
+
+                font-size: 13px;
+            }
+
+
+            .judul {
+
+                max-width: 300px;
+
+                font-size: 1.7rem;
+            }
+
+
+            .deskripsi {
+
+                max-width: 270px;
+
+                font-size: 13px;
+            }
+
+
+            .btn-menu {
+
+                padding:
+                    12px 23px;
+
+                font-size: 14px;
+            }
+
+        }
+
+
+        /* ==================================================
+           HP POSISI LANDSCAPE
+        ================================================== */
+
+        @media
+        (max-width: 900px)
+        and (orientation: landscape) {
+
+            nav {
+
+                padding-top: 15px;
+
+                font-size: 14px;
+            }
+
+
+            .content {
+
+                min-height: 100vh;
+
+                padding:
+                    20px 15px;
+            }
+
+
+            .judul {
+
+                font-size: 1.8rem;
+
+                margin-bottom: 10px;
+            }
+
+
+            .deskripsi {
+
+                font-size: 13px;
+
+                margin-bottom: 15px;
+            }
+
+
+            .btn-menu {
+
+                padding:
+                    10px 22px;
+
+                font-size: 14px;
+            }
+
+        }
+
+
+        /* ==================================================
+           VIDEO UNTUK LAYAR TEGAK / PORTRAIT
+        ================================================== */
+
+        @media
+        (max-width: 768px)
+        and (orientation: portrait) {
+
+            .video-bg {
+
+                object-position:
+                    center center;
+            }
+
+        }
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================================================
+         VIDEO BACKGROUND
+    ================================================== -->
+
+    <video
+        class="video-bg"
+
+        autoplay
+        muted
+        loop
+        playsinline
+        webkit-playsinline
+
+        preload="auto">
+
+        <source
+            src="video-koppen.mp4"
+            type="video/mp4">
+
+        Browser kamu tidak mendukung
+        video HTML5.
+
+    </video>
+
+
+    <!-- ==================================================
+         OVERLAY
+    ================================================== -->
+
+    <div class="overlay"></div>
+
+
+    <!-- ==================================================
+         NAVBAR
+    ================================================== -->
+
+    <nav>
+
+        <a href="menu.html">
+            Menu
+        </a>
+
+
+        <a href="kelompok%20RIF.html">
+            Tentang
+        </a>
+
+
+        <a href="Alamat.html">
+            Kontak
+        </a>
+
+    </nav>
+
+
+    <!-- ==================================================
+         CONTENT
+    ================================================== -->
+
+    <main class="content">
+
+
+        <!-- ==================================================
+             JUDUL
+        ================================================== -->
+
+        <h1 class="judul">
+
+            Selamat Datang di
+            Koppen_Street
+
+        </h1>
+
+
+        <!-- ==================================================
+             DESKRIPSI
+        ================================================== -->
+
+        <p class="deskripsi">
+
+            Kopi jalanan dengan rasa nikmat,
+            harga bersahabat,
+            dan suasana yang nyaman.
+
+        </p>
+
+
+        <!-- ==================================================
+             TOMBOL MENU
+        ================================================== -->
+
+        <a
+            href="menu.html"
+            class="btn-menu">
+
+            Lihat Menu
+
+        </a>
+
+
+    </main>
+
+
+    <!-- ==================================================
+         JAVASCRIPT
+         MEMASTIKAN VIDEO AUTOPLAY
+    ================================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const video =
+                    document.querySelector(
+                        ".video-bg"
+                    );
+
+
+                /*
+                 * Pastikan video dalam keadaan muted.
+                 * Ini penting untuk autoplay di HP.
+                 */
+
+                video.muted = true;
+
+                video.setAttribute(
+                    "muted",
+                    ""
+                );
+
+
+                /*
+                 * Coba menjalankan video.
+                 */
+
+                const playVideo = () => {
+
+                    video.play()
+                        .catch(() => {
+
+                            console.log(
+                                "Autoplay menunggu izin browser."
+                            );
+
+                        });
+
+                };
+
+
+                /*
+                 * Jalankan saat halaman dibuka.
+                 */
+
+                playVideo();
+
+
+                /*
+                 * Jika video sudah siap,
+                 * coba jalankan kembali.
+                 */
+
+                video.addEventListener(
+                    "canplay",
+                    playVideo
+                );
+
+
+                video.addEventListener(
+                    "loadeddata",
+                    playVideo
+                );
+
+
+                /*
+                 * Jika video berhenti,
+                 * coba jalankan kembali.
+                 */
+
+                video.addEventListener(
+                    "pause",
+                    function () {
+
+                        if (!document.hidden) {
+
+                            playVideo();
+
+                        }
+
+                    }
+                );
+
+
+                /*
+                 * Jika pengguna kembali ke halaman,
+                 * jalankan video lagi.
+                 */
+
+                document.addEventListener(
+                    "visibilitychange",
+                    function () {
+
+                        if (
+                            !document.hidden
+                        ) {
+
+                            playVideo();
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
